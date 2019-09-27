@@ -8,17 +8,32 @@ public class Dice {
     private int value;
     private Graphics g;
     private Color c;
-
+    private Color dc;
+    //make the dice scalable
+    private int size;
+    private int dotSize;
+    private int pos1,pos2,pos3;
+    
     public Dice() {
         value = (int) (Math.random() * 6 + 1);
         g = null; //null = nothing
         c = null;
     }
 
-    public Dice(Graphics pg) {
+    public Dice(Graphics pg, int size) {
         value = (int) (Math.random() * 6 + 1);
         g = pg;
         c = Color.white;
+        dc = Color.black;
+        dotSize = (int) (.167 * size);
+        pos1 = (int)(.2 * size);
+        pos2= (int)(.4 *size);
+        pos3= (int)(.6 *size);
+    }
+    
+    public void setColor(Color newc, Color newdc){
+        c = newc;
+        dc = newdc;
     }
 
     public void roll() {
@@ -34,10 +49,10 @@ public class Dice {
             return;
         }
         g.setColor(c);
-        g.fillRoundRect(25, 25, 100, 100, 20, 20);
+        g.fillRoundRect(dotSize, dotSize, (int)(.67 * size), (int)(.67 *size), 20, 20);
 
         //draw 7 dots
-        g.setColor(Color.black);
+        g.setColor(dc);
         if(value ==1){
             draw4();
         }
@@ -74,25 +89,25 @@ public class Dice {
     }
     
     private void draw1(){
-        g.fillOval(30, 30, 25, 25); //dot 1 , r1
+        g.fillOval(pos1, pos1, dotSize, dotSize); //dot 1 , r1
     }
     
     private void draw2(){
-        g.fillOval(90, 30, 25, 25);//dot 2, r1
+        g.fillOval(pos3, pos1, dotSize, dotSize);//dot 2, r1
     }
     private void draw3(){
-         g.fillOval(30, 60, 25, 25); // dot 3, r2
+         g.fillOval(pos1, pos2, dotSize, dotSize); // dot 3, r2
     }
     private void draw4(){
-         g.fillOval(60, 60, 25, 25); // dot 4, r2
+         g.fillOval(pos2, pos2, dotSize, dotSize); // dot 4, r2
     }
     private void draw5(){
-        g.fillOval(90, 60, 25, 25); // dot 5, r2
+        g.fillOval(pos3, pos2, dotSize, dotSize); // dot 5, r3
     }
     private void draw6(){
-         g.fillOval(30, 90, 25, 25); // dot 6, r3
+         g.fillOval(pos1, pos3, dotSize, dotSize); // dot 6, r3
     }
     private void draw7(){
-          g.fillOval(90, 90, 25, 25); // dot 7, r3
+          g.fillOval(pos3, pos3, dotSize, dotSize); // dot 7, r4
     }
 }
