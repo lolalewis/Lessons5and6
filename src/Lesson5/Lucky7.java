@@ -10,7 +10,7 @@ public class Lucky7 {
         Dice d2 = new Dice();
         int money =0;
         int maxmoney=money;
-        int bestroll=1;
+        int bestroll=0;
         
     /*    
         int tries = 0;
@@ -32,10 +32,10 @@ public class Lucky7 {
    */
     
         int roll = 0;
-        
+        System.out.print("How many dollars do you have? " );                
+        money=s.nextInt();           
         while (true) {
-            System.out.print("How many dollars do you have? " );                
-            money=s.nextInt();           
+            
             d1.roll();
             d2.roll();
             roll++;          
@@ -48,7 +48,7 @@ public class Lucky7 {
             }
             else if (money==0){
                 money=maxmoney;
-                roll=bestroll;
+                bestroll=roll;
                break;
             } 
                        

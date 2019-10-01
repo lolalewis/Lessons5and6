@@ -1,4 +1,3 @@
-
 package Lesson5;
 
 import java.awt.Color;
@@ -34,6 +33,11 @@ public class TestFace {
 }
     private void drawMouth(){
         g.drawLine(xPos, yPos, xPos, yPos);
+    }
+    
+    public void erase(){
+        g.setColor(Color.white);
+        
     }
     
 }

@@ -31,9 +31,10 @@ public class MainFace extends javax.swing.JFrame {
 
         facePanel = new javax.swing.JPanel();
         btnmove = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnresize = new javax.swing.JButton();
+        btncolor = new javax.swing.JButton();
+        btnmood = new javax.swing.JButton();
+        setFace = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 500));
@@ -52,12 +53,24 @@ public class MainFace extends javax.swing.JFrame {
         );
 
         btnmove.setText("Move Face");
+        btnmove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmoveActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Resize Face");
+        btnresize.setText("Resize Face");
 
-        jButton3.setText("Change Color");
+        btncolor.setText("Change Color");
 
-        jButton4.setText("Toggle Mood");
+        btnmood.setText("Toggle Mood");
+
+        setFace.setText("Set Initial Face");
+        setFace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setFaceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,16 +79,17 @@ public class MainFace extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(facePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnmove, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnresize, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(btncolor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(btnmood)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(facePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(setFace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -84,16 +98,33 @@ public class MainFace extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnmove)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnresize)
+                    .addComponent(btncolor)
+                    .addComponent(btnmood))
                 .addGap(18, 18, 18)
                 .addComponent(facePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(setFace)
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnmoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnmoveActionPerformed
+
+    private void setFaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setFaceActionPerformed
+        //all 4 face control buttons 
+        btnmood.setEnabled(true);
+        btncolor.setEnabled(true);
+        btnmove.setEnabled(true);
+        btnresize.setEnabled(true);
+        f.erase();
+        f = new Face (facePanel.getGraphics(), 50, 50);
+        f.draw();
+    }//GEN-LAST:event_setFaceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,10 +163,11 @@ public class MainFace extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncolor;
+    private javax.swing.JButton btnmood;
     private javax.swing.JButton btnmove;
+    private javax.swing.JButton btnresize;
     private javax.swing.JPanel facePanel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton setFace;
     // End of variables declaration//GEN-END:variables
 }
