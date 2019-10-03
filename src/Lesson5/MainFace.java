@@ -122,7 +122,7 @@ public class MainFace extends javax.swing.JFrame {
         btnmove.setEnabled(true);
         btnresize.setEnabled(true);
         f.erase();
-        f = new Face (facePanel.getGraphics(), 50, 50);
+        f = new TestFace (facePanel.getGraphics(), 50, 50);
         f.draw();
     }//GEN-LAST:event_setFaceActionPerformed
 
