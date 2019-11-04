@@ -8,11 +8,11 @@ public class Lucky7 {
         Scanner s = new Scanner(System.in);
         Dice d1 = new Dice();
         Dice d2 = new Dice();
-        int money =0;
-        int maxmoney=money;
-        int bestroll=0;
-        
-    /*    
+        int money = 0;
+        int maxmoney;
+        int bestroll = 1;
+
+        /*    
         int tries = 0;
         while (true) {
             d1.roll();
@@ -29,34 +29,46 @@ public class Lucky7 {
         System.out.println("It took " + tries + " tries to get snake-eyes.");
 
     }
-   */
-    
+         */
         int roll = 0;
-        System.out.print("How many dollars do you have? " );                
-        money=s.nextInt();           
+
+        //money=s.nextInt();           
         while (true) {
+            maxmoney = money;
+            System.out.print("How many dollars do you have? ");
             
+            try{
+             money = s.nextInt();
+            }catch(Exception e){
+                System.out.println("Valid numbers only");
+                s.nextLine();
+                return;
+            }
+            break;
+        }
+        while (true) {
             d1.roll();
             d2.roll();
-            roll++;          
-            int rolls = d1.getValue() + d2.getValue();         
-            if(roll==7){
-              money+=4;
+            roll++;
+            if (money > maxmoney) {
+                maxmoney = money;
+                bestroll = roll;
             }
-            else if(roll!=7){
-                money-=1;
+            int rolls = d1.getValue() + d2.getValue();
+            if (rolls == 7) {
+                money += 4;
+            } else if (rolls != 7) {
+                money -= 1;
             }
-            else if (money==0){
-                money=maxmoney;
-                bestroll=roll;
-               break;
-            } 
-                       
-                System.out.println("How many dollars do you have?" + money); 
-                System.out.println("You are broke after " + roll+ " rolls.");
-                System.out.format("You should have quit after %d rolls when you had $%d \n", bestroll, maxmoney);
-           
-}
-    }   
+            if (money == 0) {
+                break;
+            }
 
+        }
+
+       
+        System.out.println("You are broke after " + roll + " rolls.");
+        System.out.format("You should have quit after %d rolls when you had $%d \n", bestroll, maxmoney);
+
+    }
 }
