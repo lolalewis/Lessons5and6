@@ -2,42 +2,36 @@ package Lesson5;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 
-
-public class TestFace {
+public class TestFace{
     
-    private int xPos, yPos, diameter;
-    private Color color;
+    private int xlocation, ylocation, diameter;
+    private Color colorhead;
+    private Color coloreyes;
     private Graphics g;
+    private boolean ishappy;
     
-    public TestFace (Graphics g, int x, int y){
-        xPos = x;
-        yPos=y;
-        //let the "g" property = the "g" param
+    public TestFace(Graphics g, int x, int y, int d){
+        xlocation = x;
+        ylocation = y;
         this.g = g;
-        //default size and color
         diameter = 100;
-        color=Color.red;
+        colorhead = Color.red;
+        coloreyes = Color.yellow;
+        ishappy = true;
     }
+    
+    public void setColor(Color h, Color e){
+        colorhead = h;
+        coloreyes = e;
+    }
+    
     public void draw(){
         drawHead();
         drawEyes();
-        drawMouth();
+        if(ishappy) drawMouth();
+        else if (!ishappy) drawSadMouth();
     }
-    private void drawHead(){
-        g.fillOval(xPos, yPos, xPos, yPos);
-       
-    }
-    private void drawEyes (){
-       g.fillOval(xPos, yPos, xPos, yPos);
 }
-    private void drawMouth(){
-        g.drawLine(xPos, yPos, xPos, yPos);
-    }
-    
-    public void erase(){
-        g.setColor(Color.white);
-        
-    }
-    
-}
+ 
