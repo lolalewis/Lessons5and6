@@ -10,6 +10,10 @@ public class MainFace extends javax.swing.JFrame {
 
     public MainFace() {
         initComponents();
+        btnmove.setEnabled(false);
+        btnresize.setEnabled(false);
+        btncolor.setEnabled(false);
+        btnmood.setEnabled(false);
         f = new TestFace(facePanel.getGraphics(), facePanel.getWidth() / 2 - 50, facePanel.getHeight() / 2 - 50, 100);
     }
 
@@ -17,28 +21,15 @@ public class MainFace extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        facePanel = new javax.swing.JPanel();
         btnmove = new javax.swing.JButton();
         btnresize = new javax.swing.JButton();
         btncolor = new javax.swing.JButton();
         btnmood = new javax.swing.JButton();
         setFace = new javax.swing.JButton();
+        facePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 500));
-
-        facePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout facePanelLayout = new javax.swing.GroupLayout(facePanel);
-        facePanel.setLayout(facePanelLayout);
-        facePanelLayout.setHorizontalGroup(
-            facePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        facePanelLayout.setVerticalGroup(
-            facePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 316, Short.MAX_VALUE)
-        );
 
         btnmove.setText("Move Face");
         btnmove.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +66,20 @@ public class MainFace extends javax.swing.JFrame {
             }
         });
 
+        facePanel.setBackground(new java.awt.Color(0, 0, 0));
+        facePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout facePanelLayout = new javax.swing.GroupLayout(facePanel);
+        facePanel.setLayout(facePanelLayout);
+        facePanelLayout.setHorizontalGroup(
+            facePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        facePanelLayout.setVerticalGroup(
+            facePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 338, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,7 +87,6 @@ public class MainFace extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(facePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnmove, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -91,7 +95,8 @@ public class MainFace extends javax.swing.JFrame {
                         .addComponent(btncolor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnmood))
-                    .addComponent(setFace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(setFace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(facePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -103,11 +108,11 @@ public class MainFace extends javax.swing.JFrame {
                     .addComponent(btnresize)
                     .addComponent(btncolor)
                     .addComponent(btnmood))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(facePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(setFace)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,7 +159,7 @@ public class MainFace extends javax.swing.JFrame {
             return;
         }
         f.erase();
-        f.setWidth(0);
+        f.setWidth(d);
         f.draw();
     }//GEN-LAST:event_btnresizeActionPerformed
 

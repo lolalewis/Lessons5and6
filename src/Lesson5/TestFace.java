@@ -32,7 +32,7 @@ public class TestFace {
     
     public void draw(){
        drawHead();  
-        drawEyes(); 
+       drawEyes(); 
    
         if(ishappy) drawMouth();
         else if (!ishappy) drawFrown();   
